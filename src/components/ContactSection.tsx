@@ -1,0 +1,247 @@
+import { useState, FormEvent } from 'react';
+import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { COMPANY_DETAILS, FLEET_VEHICLES } from '../data';
+
+export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    pickup: 'Gokarna Town',
+    drop: 'Local Sightseeing',
+    vehicle: 'Swift Dzire',
+    date: new Date().toISOString().split('T')[0],
+    notes: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const message = `*Atmabala Travels Booking Inquiry*%0A` +
+      `*Name:* ${formData.name}%0A` +
+      `*Phone:* ${formData.phone}%0A` +
+      `*Pickup:* ${formData.pickup}%0A` +
+      `*Destination:* ${formData.drop}%0A` +
+      `*Vehicle:* ${formData.vehicle}%0A` +
+      `*Date:* ${formData.date}%0A` +
+      (formData.notes ? `*Special Request:* ${formData.notes}` : '');
+
+    window.open(`https://wa.me/918073756776?text=${message}`, '_blank');
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-[#F4F7F6]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[#FF6500] font-bold text-sm tracking-wider uppercase">
+            24/7 Support & Reservations
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B192C] mt-2 tracking-tight">
+            Contact & Ride Booking
+          </h2>
+          <p className="text-slate-600 mt-4 text-base sm:text-lg">
+            Reach out directly to Harish.G for instant cab bookings, airport transfers, and customized tour packages.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Column: Direct Contacts & Office Locations */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Phone Card */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#FF6500]/10 text-[#FF6500] flex items-center justify-center shrink-0">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-[#0B192C]">Direct Call & Emergency Cab</h4>
+                <a href="tel:8073756776" className="text-xl font-extrabold text-[#FF6500] hover:underline block mt-1">
+                  +91 8073756776
+                </a>
+                <p className="text-xs text-slate-500 mt-1">Speak directly with Harish.G for immediate dispatch.</p>
+              </div>
+            </div>
+
+            {/* WhatsApp Card */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center shrink-0">
+                <MessageCircle className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-[#0B192C]">WhatsApp Chat</h4>
+                <a
+                  href="https://wa.me/918073756776?text=Hi%20Harish%20G,%20I%20want%20to%20inquire%20about%20car%20rental%20and%20travel%20packages"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-bold text-[#25D366] hover:underline block mt-1"
+                >
+                  Start WhatsApp Chat (+91 8073756776) →
+                </a>
+                <p className="text-xs text-slate-500 mt-1">Quick replies with car photos and tariff sheets.</p>
+              </div>
+            </div>
+
+            {/* Hub Locations */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#0B192C]/10 text-[#0B192C] flex items-center justify-center shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-[#0B192C]">Gokarna Hub</h4>
+                  <p className="text-xs text-slate-600 mt-1">{COMPANY_DETAILS.locations.gokarna}</p>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#0B192C]/10 text-[#0B192C] flex items-center justify-center shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-[#0B192C]">Kumta Operating Base</h4>
+                  <p className="text-xs text-slate-600 mt-1">{COMPANY_DETAILS.locations.kumta}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-[#0B192C]">Email Inquiries</h4>
+                <p className="text-sm text-slate-700 font-semibold mt-1">{COMPANY_DETAILS.email}</p>
+                <p className="text-xs text-slate-500 mt-1">Corporate & tour operator partnerships.</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive Booking Form */}
+          <div className="lg:col-span-7">
+            <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-[#0B192C]">Send a Booking Request</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  Fill in your travel details to send an organized inquiry directly to our WhatsApp booking desk.
+                </p>
+              </div>
+
+              {submitted && (
+                <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <span>Inquiry sent to WhatsApp! Harish.G will confirm vehicle availability shortly.</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Ramesh Hegde"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Mobile / WhatsApp Number</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="e.g. 9876543210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Pickup Location</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Gokarna Main Town or Railway Station"
+                      value={formData.pickup}
+                      onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Drop / Tour Plan</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Om Beach + Yana Caves + Vibhuti"
+                      value={formData.drop}
+                      onChange={(e) => setFormData({ ...formData, drop: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Preferred Vehicle</label>
+                    <select
+                      value={formData.vehicle}
+                      onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    >
+                      {FLEET_VEHICLES.map((v) => (
+                        <option key={v.id} value={v.name}>
+                          {v.name} ({v.capacity})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Travel Date</label>
+                    <input
+                      type="date"
+                      required
+                      value={formData.date}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Special Requests or Timings (Optional)</label>
+                  <textarea
+                    rows={3}
+                    placeholder="e.g. Flight arrival at 11 AM, need carrier for 4 large suitcases, etc."
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 rounded-xl bg-[#25D366] text-slate-950 font-extrabold text-base shadow-lg shadow-[#25D366]/20 hover:bg-[#1EBE5D] transition-all flex items-center justify-center gap-2"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>Send Booking Inquiry to WhatsApp</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}

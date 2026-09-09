@@ -1,0 +1,149 @@
+import { Phone, MessageCircle, FileCode, CheckCircle } from 'lucide-react';
+import { COMPANY_DETAILS } from '../data';
+
+interface StatsAndParallaxProps {
+  onOpenBooking: () => void;
+}
+
+export default function StatsAndParallax({ onOpenBooking }: StatsAndParallaxProps) {
+  return (
+    <div>
+      {/* Number Counters Section (matching original stats-section) */}
+      <section className="bg-[#0B192C] text-white py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            
+            <div className="p-4">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[#FF6500] mb-2 tracking-tight">
+                {COMPANY_DETAILS.stats.happyCustomers}
+              </div>
+              <p className="text-sm font-semibold text-slate-300">Happy Customers</p>
+            </div>
+
+            <div className="p-4">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[#FF6500] mb-2 tracking-tight">
+                {COMPANY_DETAILS.stats.successfulTrips}
+              </div>
+              <p className="text-sm font-semibold text-slate-300">Successful Trips</p>
+            </div>
+
+            <div className="p-4">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[#FF6500] mb-2 tracking-tight">
+                {COMPANY_DETAILS.stats.premiumCars}
+              </div>
+              <p className="text-sm font-semibold text-slate-300">Premium Cars</p>
+            </div>
+
+            <div className="p-4">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[#FF6500] mb-2 tracking-tight">
+                {COMPANY_DETAILS.stats.rating}
+              </div>
+              <p className="text-sm font-semibold text-slate-300">Google Review Rating</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Background Banner (matching original parallax-section) */}
+      <section
+        className="relative py-28 px-4 sm:px-6 text-center text-white bg-fixed bg-center bg-cover flex items-center justify-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(11, 25, 44, 0.78), rgba(11, 25, 44, 0.85)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80')`
+        }}
+      >
+        <div className="max-w-3xl mx-auto z-10">
+          <span className="text-[#FF6500] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-3">
+            Your Trusted Coastal Travel Partner
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">
+            Ready to hit the road?
+          </h2>
+          <p className="text-slate-300 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+            Book your car rental or coastal sightseeing package in seconds. Connect directly with Harish.G for instant quotes.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              onClick={onOpenBooking}
+              className="px-8 py-4 rounded-full bg-[#FF6500] text-white font-bold text-base shadow-xl hover:bg-[#E55A00] transition-all hover:scale-105 active:scale-95"
+            >
+              Book Now
+            </button>
+
+            <a
+              href="tel:8073756776"
+              className="flex items-center gap-2 px-7 py-4 rounded-full bg-white text-[#0B192C] font-bold text-base shadow-lg hover:bg-slate-100 transition-all"
+            >
+              <Phone className="w-5 h-5 text-[#FF6500]" />
+              <span>Call: 8073756776</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* HTML / Raw Files Quick Access Bar */}
+      <section className="bg-slate-100 py-8 px-4 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-700">
+          <div className="flex items-center gap-2">
+            <FileCode className="w-5 h-5 text-[#FF6500] shrink-0" />
+            <span>
+              <strong>Project Files Created:</strong> All repository HTML, CSS, JavaScript, and asset files are active in this workspace.
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <a
+              href="/HTML/INDEX.HTML"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              INDEX.HTML ↗
+            </a>
+            <a
+              href="/HTML/packages.html"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              packages.html ↗
+            </a>
+            <a
+              href="/HTML/fleet.html"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              fleet.html ↗
+            </a>
+            <a
+              href="/HTML/about.html"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              about.html ↗
+            </a>
+            <a
+              href="/HTML/contact.html"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              contact.html ↗
+            </a>
+            <a
+              href="/CSS/STYLE.CSS"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+            >
+              STYLE.CSS ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

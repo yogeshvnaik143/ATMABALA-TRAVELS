@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Booking - ATMABALA Travels Gokarna</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header id="main-header">
+    <div class="logo" id="logo">
+      <img src="/IMAGE/logo-removebg-preview.png" alt="Atmabala Travels Logo" class="logo-image">
+      <span class="logo-text">ATMABALA <span>travels</span></span>
+    </div>
+    
+    <button class="menu-btn" id="menu-btn" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/HTML/fleet.html">Our Fleet</a></li>
+        <li><a href="/HTML/packages.html">Packages</a></li>
+        <li><a href="/HTML/about.html">About</a></li>
+        <li><a href="/HTML/contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding-top: 110px;">
+    <!-- Contact Info Section -->
+    <section style="max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px 20px;">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span style="color: var(--accent-color); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">24/7 Service & Inquiries</span>
+        <h1 style="color: var(--primary-dark); font-size: 2.8rem; margin-top: 10px;">Contact Atmabala Travels</h1>
+        <p style="color: #666; font-size: 1.15rem; max-width: 600px; margin: 15px auto 0 auto;">
+          Planning a trip to Gokarna, Kumta, or Karwar? Get in touch directly with our team for instant quotes and guaranteed vehicle bookings.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px;">
+        <!-- Contact Cards -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid var(--gray-light); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 8px;">📞 Direct Phone / WhatsApp</h3>
+            <p style="color: #555; font-size: 1.2rem; font-weight: bold; margin-bottom: 12px;">+91 8073756776 (Harish.G)</p>
+            <p style="color: #777; font-size: 0.95rem; margin-bottom: 15px;">Available 24 hours for emergency pickups, railway station drops, and sightseeing bookings.</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="tel:8073756776" class="book-btn" style="text-decoration: none; padding: 8px 20px; font-size: 0.95rem;">Call Now</a>
+              <a href="https://wa.me/918073756776?text=Hello%20Harish%20G,%20I%20want%20to%20inquire%20about%20travel%20packages%20and%20car%20rental" target="_blank" class="book-btn" style="background: #25D366; text-decoration: none; padding: 8px 20px; font-size: 0.95rem;">WhatsApp Chat</a>
+            </div>
+          </div>
+
+          <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid var(--gray-light); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 8px;">📍 Office Locations</h3>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 8px;"><strong>Gokarna Hub:</strong> Near Main Bus Stand, Gokarna, Uttara Kannada, Karnataka - 581326</p>
+            <p style="color: #555; line-height: 1.6;"><strong>Kumta Office:</strong> Main Road, Kumta, Uttara Kannada, Karnataka - 581343</p>
+          </div>
+
+          <div style="background: white; padding: 25px; border-radius: 8px; border: 1px solid var(--gray-light); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 8px;">✉️ Email Inquiries</h3>
+            <p style="color: #555; font-size: 1.05rem;">bookings@atmabalatravels.com</p>
+            <p style="color: #777; font-size: 0.9rem; margin-top: 5px;">Response within 2 hours for tour quotations.</p>
+          </div>
+        </div>
+
+        <!-- Quick Inquiry Form -->
+        <div style="background: white; padding: 35px; border-radius: 10px; border: 1px solid var(--gray-light); box-shadow: 0 6px 20px rgba(0,0,0,0.06);">
+          <h3 style="color: var(--primary-dark); font-size: 1.5rem; margin-bottom: 10px;">Send a Booking Inquiry</h3>
+          <p style="color: #666; font-size: 0.95rem; margin-bottom: 25px;">Fill out this quick form and we'll reply right back with vehicle availability and best rates.</p>
+
+          <form onsubmit="event.preventDefault(); const name=document.getElementById('cname').value; const phone=document.getElementById('cphone').value; const trip=document.getElementById('ctrip').value; const car=document.getElementById('ccar').value; const url='https://wa.me/918073756776?text=' + encodeURIComponent('Hi Harish G, Inquiry from: ' + name + ' (Phone: ' + phone + '), Tour/Trip: ' + trip + ', Vehicle: ' + car); window.open(url, '_blank');">
+            <div style="margin-bottom: 18px;">
+              <label for="cname" style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: var(--primary-dark);">Your Name</label>
+              <input type="text" id="cname" required placeholder="e.g. Rahul Sharma" style="width: 100%; padding: 12px 14px; border: 1px solid var(--gray-light); border-radius: 6px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <label for="cphone" style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: var(--primary-dark);">Phone / WhatsApp Number</label>
+              <input type="tel" id="cphone" required placeholder="e.g. 9876543210" style="width: 100%; padding: 12px 14px; border: 1px solid var(--gray-light); border-radius: 6px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <label for="ctrip" style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: var(--primary-dark);">Trip / Package Desired</label>
+              <select id="ctrip" style="width: 100%; padding: 12px 14px; border: 1px solid var(--gray-light); border-radius: 6px; font-size: 1rem; background: white;">
+                <option value="Gokarna 1-Day Beach & Temple Tour">Gokarna 1-Day Beach & Temple Tour</option>
+                <option value="Kumta City & Beach Tour">Kumta City & Beach Tour</option>
+                <option value="Murdeshwar & Yana Caves Tour">Murdeshwar & Yana Caves Tour</option>
+                <option value="Vibhuti Falls & Apsara Konda Tour">Vibhuti Falls & Apsara Konda Tour</option>
+                <option value="Goa Airport Pickup/Drop (Dabolim/MOPA)">Goa Airport Pickup/Drop (Dabolim/MOPA)</option>
+                <option value="Custom Outstation Travel">Custom Outstation Travel</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <label for="ccar" style="display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: var(--primary-dark);">Preferred Vehicle</label>
+              <select id="ccar" style="width: 100%; padding: 12px 14px; border: 1px solid var(--gray-light); border-radius: 6px; font-size: 1rem; background: white;">
+                <option value="Swift Dzire (4+1 Sedan)">Swift Dzire (4+1 Sedan)</option>
+                <option value="Innova Crysta (6+1 / 7+1 MPV)">Innova Crysta (6+1 / 7+1 MPV)</option>
+                <option value="Tempo Traveller (12-20 Seater)">Tempo Traveller (12-20 Seater)</option>
+                <option value="Other / Recommendation Needed">Other / Recommendation Needed</option>
+              </select>
+            </div>
+
+            <button type="submit" class="book-btn" style="width: 100%; padding: 14px; font-size: 1.1rem; border-radius: 6px; cursor: pointer;">
+              Send Booking Request via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>ATMABALA TRAVELS</h3>
+        <p>Your trusted partner for premium car rentals and memorable coastal travel experiences in Gokarna and Kumta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="/HTML/fleet.html">Our Fleet</a></li>
+          <li><a href="/HTML/packages.html">Travel Packages</a></li>
+          <li><a href="/HTML/about.html">About Us</a></li>
+          <li><a href="/HTML/contact.html">Contact Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p>📍 Gokarna / Kumta, Karnataka</p>
+        <p>📞 +91 8073756776 (Harish.G)</p>
+        <p>✉️ bookings@atmabalatravels.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ATMABALA Travels. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
