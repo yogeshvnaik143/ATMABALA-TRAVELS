@@ -4,6 +4,7 @@
  */
 
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FleetSection from './components/FleetSection';
@@ -15,6 +16,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import { FleetVehicle, TravelPackage } from './types';
+import { FLEET_VEHICLES } from './data';
 import { Phone, MessageCircle } from 'lucide-react';
 
 export default function App() {
@@ -57,7 +59,8 @@ export default function App() {
             <Hero
               onOpenBooking={handleOpenBooking}
               onSelectVehicleForBooking={(vId) => {
-                // optional quick select
+                const v = FLEET_VEHICLES.find((item) => item.id === vId);
+                if (v) setSelectedVehicle(v);
               }}
               onViewPackages={() => {
                 setActiveTab('packages');
@@ -120,23 +123,27 @@ export default function App() {
 
       {/* Floating Quick Action Contacts for Instant Access */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        <a
+        <motion.a
+          whileHover={{ scale: 1.15, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
           href="https://wa.me/918073756776?text=Hi%20Harish%20G,%20I%20want%20to%20inquire%20about%20a%20cab%20with%20Atmabala%20Travels"
           target="_blank"
           rel="noreferrer"
-          className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all"
+          className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:bg-[#1EBE5D] transition-colors"
           title="Chat on WhatsApp"
         >
           <MessageCircle className="w-7 h-7" />
-        </a>
+        </motion.a>
 
-        <a
+        <motion.a
+          whileHover={{ scale: 1.15, rotate: -5 }}
+          whileTap={{ scale: 0.9 }}
           href="tel:8073756776"
-          className="w-14 h-14 rounded-full bg-[#FF6500] text-white flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all"
+          className="w-14 h-14 rounded-full bg-[#FF6500] text-white flex items-center justify-center shadow-2xl hover:bg-[#E55A00] transition-colors"
           title="Call Harish.G (8073756776)"
         >
           <Phone className="w-6 h-6" />
-        </a>
+        </motion.a>
       </div>
 
       {/* Interactive Booking Modal */}

@@ -1,21 +1,33 @@
 import { useState, FormEvent } from 'react';
-import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { motion } from 'motion/react';
 import { COMPANY_DETAILS, FLEET_VEHICLES } from '../data';
 
 export default function ContactSection() {
+  const todayStr = new Date().toISOString().split('T')[0];
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     pickup: 'Gokarna Town',
     drop: 'Local Sightseeing',
     vehicle: 'Swift Dzire',
-    date: new Date().toISOString().split('T')[0],
+    date: todayStr,
     notes: '',
   });
+  const [phoneError, setPhoneError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    // Sanitize and validate phone
+    const cleanPhone = formData.phone.replace(/[^0-9]/g, '');
+    if (cleanPhone.length < 10) {
+      setPhoneError('Please enter a valid 10-digit mobile number for WhatsApp booking confirmation.');
+      return;
+    }
+    setPhoneError('');
+
     const message = `*Atmabala Travels Booking Inquiry*%0A` +
       `*Name:* ${formData.name}%0A` +
       `*Phone:* ${formData.phone}%0A` +
@@ -23,7 +35,7 @@ export default function ContactSection() {
       `*Destination:* ${formData.drop}%0A` +
       `*Vehicle:* ${formData.vehicle}%0A` +
       `*Date:* ${formData.date}%0A` +
-      (formData.notes ? `*Special Request:* ${formData.notes}` : '');
+      (formData.notes ? `*Special Request:* ${encodeURIComponent(formData.notes)}` : '');
 
     window.open(`https://wa.me/918073756776?text=${message}`, '_blank');
     setSubmitted(true);
@@ -34,7 +46,13 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-[#FF6500] font-bold text-sm tracking-wider uppercase">
             24/7 Support & Reservations
           </span>
@@ -44,14 +62,17 @@ export default function ContactSection() {
           <p className="text-slate-600 mt-4 text-base sm:text-lg">
             Reach out directly to Harish.G for instant cab bookings, airport transfers, and customized tour packages.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Direct Contacts & Office Locations */}
           <div className="lg:col-span-5 space-y-6">
             
             {/* Phone Card */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+            <motion.div
+              whileHover={{ y: -4 }}
+              className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4"
+            >
               <div className="w-12 h-12 rounded-xl bg-[#FF6500]/10 text-[#FF6500] flex items-center justify-center shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
@@ -62,10 +83,13 @@ export default function ContactSection() {
                 </a>
                 <p className="text-xs text-slate-500 mt-1">Speak directly with Harish.G for immediate dispatch.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* WhatsApp Card */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+            <motion.div
+              whileHover={{ y: -4 }}
+              className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4"
+            >
               <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center shrink-0">
                 <MessageCircle className="w-6 h-6" />
               </div>
@@ -81,10 +105,13 @@ export default function ContactSection() {
                 </a>
                 <p className="text-xs text-slate-500 mt-1">Quick replies with car photos and tariff sheets.</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Hub Locations */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <motion.div
+              whileHover={{ y: -4 }}
+              className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#0B192C]/10 text-[#0B192C] flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
@@ -104,10 +131,13 @@ export default function ContactSection() {
                   <p className="text-xs text-slate-600 mt-1">{COMPANY_DETAILS.locations.kumta}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Email */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+            <motion.div
+              whileHover={{ y: -4 }}
+              className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4"
+            >
               <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
                 <Mail className="w-6 h-6" />
               </div>
@@ -116,13 +146,18 @@ export default function ContactSection() {
                 <p className="text-sm text-slate-700 font-semibold mt-1">{COMPANY_DETAILS.email}</p>
                 <p className="text-xs text-slate-500 mt-1">Corporate & tour operator partnerships.</p>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* Right Column: Interactive Booking Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl"
+            >
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-[#0B192C]">Send a Booking Request</h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -134,6 +169,13 @@ export default function ContactSection() {
                 <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                   <span>Inquiry sent to WhatsApp! Harish.G will confirm vehicle availability shortly.</span>
+                </div>
+              )}
+
+              {phoneError && (
+                <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+                  <span>{phoneError}</span>
                 </div>
               )}
 
@@ -158,8 +200,13 @@ export default function ContactSection() {
                       required
                       placeholder="e.g. 9876543210"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        if (phoneError) setPhoneError('');
+                      }}
+                      className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-hidden focus:ring-2 ${
+                        phoneError ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:ring-[#FF6500]'
+                      }`}
                     />
                   </div>
                 </div>
@@ -211,6 +258,7 @@ export default function ContactSection() {
                     <input
                       type="date"
                       required
+                      min={todayStr}
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                       className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-[#FF6500]"
@@ -229,15 +277,17 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#25D366] text-slate-950 font-extrabold text-base shadow-lg shadow-[#25D366]/20 hover:bg-[#1EBE5D] transition-all flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl bg-[#25D366] text-slate-950 font-extrabold text-base shadow-lg shadow-[#25D366]/20 hover:bg-[#1EBE5D] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-5 h-5" />
                   <span>Send Booking Inquiry to WhatsApp</span>
-                </button>
+                </motion.button>
               </form>
-            </div>
+            </motion.div>
           </div>
 
         </div>
