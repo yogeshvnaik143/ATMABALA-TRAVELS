@@ -21,14 +21,14 @@ Premium car rentals and coastal travel packages across Gokarna, Kumta, Karwar, a
 │   │   ├── maruti-ertiga.jpg   # 6-seater hybrid MUV
 │   │   ├── tempo-traveller.jpg # Group tourist van (12-20 seater)
 │   │   ├── gokarna-beach.jpg   # Coastal scenic photography
+│   │   ├── gokarna-sightseeing-poster.jpg # Original sightseeing poster
 │   │   └── kudle-beach.jpg     # Scenic Kudle beach view
-│   ├── html/                   # Standalone multi-page static site
-│   │   ├── index.html          # Main landing page with animations
-│   │   ├── packages.html       # 15 Gokarna tourist attractions poster
-│   │   ├── fleet.html          # Fleet specifications & tariff cards
-│   │   ├── about.html          # Company story & safety protocols
-│   │   └── contact.html        # Direct booking & dispatch contact desk
-│   └── [CSS/, JS/, HTML/, IMAGE/] # Backward-compatible mirrors
+│   └── html/                   # Clean multi-page static site
+│       ├── index.html          # Main landing page with animations
+│       ├── packages.html       # 15 Gokarna tourist attractions poster
+│       ├── fleet.html          # Fleet specifications & tariff cards
+│       ├── about.html          # Company story & safety protocols
+│       └── contact.html        # Direct booking & dispatch contact desk
 │
 ├── src/                        # Interactive React + TypeScript Application
 │   ├── components/             # Modular UI components

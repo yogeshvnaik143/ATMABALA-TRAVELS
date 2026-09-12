@@ -91,7 +91,7 @@ export default function AboutSection() {
             src="/images/logo-badge.jpg"
             alt="Atmabala Travels Gokarna"
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/images/gokarna-main-beach.jpg';
+              (e.currentTarget as HTMLImageElement).src = '/images/gokarna-beach.jpg';
             }}
             className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-4 border-[#FF6500] shadow-lg shrink-0"
           />

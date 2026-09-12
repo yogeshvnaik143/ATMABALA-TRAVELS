@@ -130,38 +130,38 @@ export default function Footer({ setActiveTab }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <a href="/HTML/INDEX.HTML" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /HTML/INDEX.HTML ↗
+                <a href="/html/index.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  📄 /html/index.html ↗
                 </a>
               </li>
               <li>
-                <a href="/HTML/packages.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /HTML/packages.html ↗
+                <a href="/html/packages.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  📄 /html/packages.html ↗
                 </a>
               </li>
               <li>
-                <a href="/HTML/fleet.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /HTML/fleet.html ↗
+                <a href="/html/fleet.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  📄 /html/fleet.html ↗
                 </a>
               </li>
               <li>
-                <a href="/HTML/about.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /HTML/about.html ↗
+                <a href="/html/about.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  📄 /html/about.html ↗
                 </a>
               </li>
               <li>
-                <a href="/HTML/contact.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /HTML/contact.html ↗
+                <a href="/html/contact.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  📄 /html/contact.html ↗
                 </a>
               </li>
               <li>
-                <a href="/CSS/STYLE.CSS" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  🎨 /CSS/STYLE.CSS ↗
+                <a href="/css/style.css" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  🎨 /css/style.css ↗
                 </a>
               </li>
               <li>
-                <a href="/JS/SCRIPT.JS" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  ⚡ /JS/SCRIPT.JS ↗
+                <a href="/js/script.js" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
+                  ⚡ /js/script.js ↗
                 </a>
               </li>
             </ul>

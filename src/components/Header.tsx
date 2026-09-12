@@ -196,7 +196,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
 
               <div className="text-center pt-2">
                 <a
-                  href="/HTML/INDEX.HTML"
+                  href="/html/index.html"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900 font-medium"

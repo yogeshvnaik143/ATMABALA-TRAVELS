@@ -103,58 +103,66 @@ export default function StatsAndParallax({ onOpenBooking }: StatsAndParallaxProp
           <div className="flex items-center gap-2">
             <FileCode className="w-5 h-5 text-[#FF6500] shrink-0" />
             <span>
-              <strong>Project Files Created:</strong> All repository HTML, CSS, JavaScript, and asset files are active in this workspace.
+              <strong>Clean Static Assets:</strong> Preserved original HTML templates, CSS stylesheets, and scripts under <code className="bg-slate-200 px-1 py-0.5 rounded text-xs">/html/</code>, <code className="bg-slate-200 px-1 py-0.5 rounded text-xs">/css/</code>, and <code className="bg-slate-200 px-1 py-0.5 rounded text-xs">/js/</code>.
             </span>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
             <a
-              href="/HTML/INDEX.HTML"
+              href="/html/index.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
-              INDEX.HTML ↗
+              index.html ↗
             </a>
             <a
-              href="/HTML/packages.html"
+              href="/html/packages.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
               packages.html ↗
             </a>
             <a
-              href="/HTML/fleet.html"
+              href="/html/fleet.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
               fleet.html ↗
             </a>
             <a
-              href="/HTML/about.html"
+              href="/html/about.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
               about.html ↗
             </a>
             <a
-              href="/HTML/contact.html"
+              href="/html/contact.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
               contact.html ↗
             </a>
             <a
-              href="/CSS/STYLE.CSS"
+              href="/css/style.css"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
             >
-              STYLE.CSS ↗
+              style.css ↗
+            </a>
+            <a
+              href="/js/script.js"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-md bg-white border border-slate-300 font-semibold hover:border-[#FF6500] hover:text-[#FF6500] transition-colors text-xs"
+            >
+              script.js ↗
             </a>
           </div>
         </div>

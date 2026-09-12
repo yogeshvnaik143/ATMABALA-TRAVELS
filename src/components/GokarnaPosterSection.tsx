@@ -60,7 +60,7 @@ export default function GokarnaPosterSection() {
 
           <div className="flex items-center gap-3">
             <a
-              href="/HTML/packages.html"
+              href="/html/packages.html"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#FFF7A1] text-xs font-bold hover:bg-[#D4AF37]/30 transition-all"
@@ -148,7 +148,7 @@ export default function GokarnaPosterSection() {
                       src={place.image}
                       alt={place.title}
                       onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).src = '/images/gokarna-main-beach.jpg';
+                        (e.currentTarget as HTMLImageElement).src = '/images/gokarna-beach.jpg';
                       }}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
@@ -222,7 +222,7 @@ export default function GokarnaPosterSection() {
                     src={selectedPlace.image}
                     alt={selectedPlace.title}
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = '/images/gokarna-main-beach.jpg';
+                      (e.currentTarget as HTMLImageElement).src = '/images/gokarna-beach.jpg';
                     }}
                     className="w-full h-full object-cover"
                   />
