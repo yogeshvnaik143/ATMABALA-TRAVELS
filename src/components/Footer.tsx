@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, Mail, MapPin, FileCode } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, Compass } from 'lucide-react';
 import { COMPANY_DETAILS } from '../data';
 
 interface FooterProps {
@@ -14,29 +14,35 @@ export default function Footer({ setActiveTab }: FooterProps) {
           
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <button
+              onClick={() => {
+                setActiveTab('home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-3 text-left group cursor-pointer"
+            >
               <img
                 src="/images/logo.png"
                 alt="Atmabala Travels Logo"
-                className="h-10 w-auto object-contain brightness-110"
+                className="h-10 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform"
               />
               <span className="font-extrabold text-xl tracking-tight text-white">
                 ATMABALA <span className="text-[#FF6500]">travels</span>
               </span>
-            </div>
+            </button>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Your premier partner for clean, reliable car rentals, airport pickups, and unforgettable coastal journeys across Gokarna, Kumta, and Karwar.
+              Your premier partner for clean, reliable car rentals, airport pickups, and unforgettable coastal journeys across Gokarna, Kumta, Murdeshwar, and Karwar.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="tel:8073756776"
+                href={`tel:${COMPANY_DETAILS.phone}`}
                 className="p-2.5 rounded-full bg-slate-800 hover:bg-[#FF6500] text-white transition-colors"
-                title="Call 8073756776"
+                title={`Call ${COMPANY_DETAILS.phone}`}
               >
                 <Phone className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/918073756776"
+                href={`https://wa.me/91${COMPANY_DETAILS.phone}?text=Hi%20Harish%20G,%20I%20want%20to%20inquire%20about%20travel%20with%20Atmabala%20Travels`}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2.5 rounded-full bg-slate-800 hover:bg-[#25D366] text-white transition-colors"
@@ -59,7 +65,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('home');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   Home Page
                 </button>
@@ -70,7 +76,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('fleet');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   Our Fleet (Dzire, Crysta, Tempo)
                 </button>
@@ -81,7 +87,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('packages');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   Tour Packages & Routes
                 </button>
@@ -92,7 +98,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('poster');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   15 Gokarna Tourist Places
                 </button>
@@ -103,7 +109,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('about');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   About Atmabala Travels
                 </button>
@@ -114,7 +120,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                     setActiveTab('contact');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="hover:text-[#FF6500] transition-colors"
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
                 >
                   Contact & Bookings
                 </button>
@@ -122,46 +128,66 @@ export default function Footer({ setActiveTab }: FooterProps) {
             </ul>
           </div>
 
-          {/* Standalone Repo Files */}
+          {/* Popular Coastal Tour Routes */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2 flex items-center gap-1.5">
-              <FileCode className="w-4 h-4 text-[#FF6500]" />
-              Repository Files
+              <Compass className="w-4 h-4 text-[#FF6500]" />
+              Popular Tour Routes
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <a href="/html/index.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /html/index.html ↗
-                </a>
+                <button
+                  onClick={() => {
+                    setActiveTab('packages');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
+                >
+                  Gokarna Beach & Temple Tour
+                </button>
               </li>
               <li>
-                <a href="/html/packages.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /html/packages.html ↗
-                </a>
+                <button
+                  onClick={() => {
+                    setActiveTab('packages');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
+                >
+                  Murdeshwar & Honnavar Mangroves
+                </button>
               </li>
               <li>
-                <a href="/html/fleet.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /html/fleet.html ↗
-                </a>
+                <button
+                  onClick={() => {
+                    setActiveTab('packages');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
+                >
+                  Yana Caves & Vibhooti Waterfalls
+                </button>
               </li>
               <li>
-                <a href="/html/about.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /html/about.html ↗
-                </a>
+                <button
+                  onClick={() => {
+                    setActiveTab('packages');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6500] transition-colors cursor-pointer text-left"
+                >
+                  Jog Falls Nature Trail
+                </button>
               </li>
-              <li>
-                <a href="/html/contact.html" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  📄 /html/contact.html ↗
-                </a>
-              </li>
-              <li>
-                <a href="/css/style.css" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  🎨 /css/style.css ↗
-                </a>
-              </li>
-              <li>
-                <a href="/js/script.js" target="_blank" rel="noreferrer" className="hover:text-[#FF6500] transition-colors">
-                  ⚡ /js/script.js ↗
+              <li className="pt-2 border-t border-slate-800/80">
+                <a
+                  href="/html/index.html"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-[#FF6500] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Browse Standalone HTML Pages</span>
+                  <span>↗</span>
                 </a>
               </li>
             </ul>
@@ -179,13 +205,21 @@ export default function Footer({ setActiveTab }: FooterProps) {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#FF6500] shrink-0" />
-                <a href="tel:8073756776" className="text-white font-bold hover:text-[#FF6500]">
-                  +91 8073756776 (Harish.G)
+                <a
+                  href={`tel:${COMPANY_DETAILS.phone}`}
+                  className="text-white font-bold hover:text-[#FF6500] transition-colors"
+                >
+                  +91 {COMPANY_DETAILS.phone} (Harish. G)
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#FF6500] shrink-0" />
-                <span>{COMPANY_DETAILS.email}</span>
+                <a
+                  href={`mailto:${COMPANY_DETAILS.email}`}
+                  className="text-slate-300 hover:text-[#FF6500] transition-colors"
+                >
+                  {COMPANY_DETAILS.email}
+                </a>
               </div>
               <p className="text-[11px] text-slate-500 pt-2">
                 Open 24 hours daily for instant bookings, station drops & airport transfers.
@@ -199,7 +233,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 ATMABALA Travels. All rights reserved.</p>
           <p className="text-slate-400">
-            Proprietor: <strong className="text-slate-300">Harish. G</strong> • Ph: 8073756776
+            Proprietor: <strong className="text-slate-300">Harish. G</strong> • Ph: {COMPANY_DETAILS.phone}
           </p>
         </div>
 
